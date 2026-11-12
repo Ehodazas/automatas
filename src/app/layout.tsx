@@ -47,7 +47,8 @@ export const metadata: Metadata = {
     title: `${site.brand} – autoservisas ir autodalys ${city.locative}`,
     description: site.description,
     // Paveikslėlis nuorodai dalinantis (sugeneruotas iš prekės ženklo, 1200×630).
-    images: [{ url: "og.png", width: 1200, height: 630, alt: `${site.brand} – autoservisas ir autodalys ${city.locative}` }],
+    // og.png sukurtas „Automatas“ prekės ženklui – kitiems klientams reikia savo paveikslėlio.
+    images: site.id !== "automatas" ? undefined : [{ url: "og.png", width: 1200, height: 630, alt: `${site.brand} – autoservisas ir autodalys ${city.locative}` }],
   },
   twitter: { card: "summary_large_image" },
   // Demonstracinė versija neindeksuojama, kad nekonkuruotų su tikra įmonės svetaine.

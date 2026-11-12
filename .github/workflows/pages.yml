@@ -26,15 +26,29 @@ jobs:
       - id: pages
         uses: actions/configure-pages@v5
       - run: npm ci
-      - run: npm run build
+
+      # 1) „Automatas“ – pagrindinis adresas
+      - name: Build Automatas
+        run: npm run build && mv out site
         env:
           GITHUB_PAGES: "true"
           PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
           NEXT_PUBLIC_SITE_URL: ${{ steps.pages.outputs.base_url }}
           NEXT_TELEMETRY_DISABLED: "1"
+
+      # 2) UAB „Autodalių pasaulis“ (neoficiali demonstracija) – /autodaliu-pasaulis/
+      - name: Build Autodaliu pasaulis
+        run: rm -rf .next && npm run build && mv out site/autodaliu-pasaulis
+        env:
+          GITHUB_PAGES: "true"
+          NEXT_PUBLIC_SITE: autodaliu-pasaulis
+          PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}/autodaliu-pasaulis
+          NEXT_PUBLIC_SITE_URL: ${{ steps.pages.outputs.base_url }}/autodaliu-pasaulis
+          NEXT_TELEMETRY_DISABLED: "1"
+
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: out
+          path: site
 
   deploy:
     needs: build
