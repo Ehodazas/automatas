@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
   if (site.isDemo) return { rules: { userAgent: "*", disallow: "/" } };
   return {
     rules: { userAgent: "*", allow: "/" },
-    sitemap: new URL("/sitemap.xml", site.domain).toString(),
+    sitemap: `${site.domain}/sitemap.xml`,
   };
 }

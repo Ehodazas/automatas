@@ -114,7 +114,7 @@ export function Hero() {
                 <span className="font-mono text-[11px] text-red">{n}</span>
                 {t}
               </dt>
-              <dd className="mt-0.5 text-xs text-white/55">{d}</dd>
+              <dd className="mt-0.5 text-xs text-white/70">{d}</dd>
             </div>
           ))}
         </dl>

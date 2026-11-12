@@ -15,7 +15,7 @@ function place(loc: Location, type: string) {
       addressCountry: "LT",
     },
     areaServed: site.city.name,
-    url: site.domain,
+    url: `${site.domain}/`,
   };
 }
 
@@ -38,7 +38,7 @@ export function JsonLd() {
         ...(site.companyCode ? { taxID: site.companyCode } : {}),
         ...(site.foundedYear ? { foundingDate: String(site.foundedYear) } : {}),
         email: site.email,
-        url: site.domain,
+        url: `${site.domain}/`,
       },
       ...graph,
     ],

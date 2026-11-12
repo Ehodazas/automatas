@@ -1,11 +1,11 @@
 import type { MetadataRoute } from "next";
-import { nav, site } from "@/config/site";
+import { absoluteUrl, nav } from "@/config/site";
 
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return nav.map((n) => ({
-    url: new URL(n.href, site.domain).toString(),
+    url: absoluteUrl(n.href),
     changeFrequency: "monthly",
     priority: n.href === "/" ? 1 : 0.8,
   }));

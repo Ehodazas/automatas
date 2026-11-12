@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { site } from "@/config/site";
+import { absoluteUrl, site } from "@/config/site";
 import { LocationCard } from "@/components/LocationCard";
 import { RequestForm } from "@/components/forms/RequestForm";
 import { contactFields, repairFields } from "@/components/forms/presets";
@@ -9,7 +9,7 @@ import { MailIcon } from "@/components/icons";
 export const metadata: Metadata = {
   title: `Kontaktai – autoservisas ${site.city.locative}`,
   description: `${site.brand} kontaktai: autoserviso ir autodalių parduotuvės adresai, telefonai, žemėlapiai ir registracija remontui ${site.city.locative}.`,
-  alternates: { canonical: "/kontaktai" },
+  alternates: { canonical: absoluteUrl("/kontaktai") },
 };
 
 export default function ContactPage() {

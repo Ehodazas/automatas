@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { site } from "@/config/site";
+import { absoluteUrl, site } from "@/config/site";
 import { services } from "@/content/services";
 import { PhotoFrame } from "@/components/PhotoFrame";
 import { PriceList } from "@/components/PriceList";
@@ -11,7 +11,7 @@ const { city } = site;
 export const metadata: Metadata = {
   title: `Automobilių remontas ${city.locative} – paslaugos`,
   description: `Automobilių remontas ${city.locative}: diagnostika, variklių remontas, važiuoklė, stabdžiai, autoelektrika, kondicionieriai, padangos ir techninės apžiūros paruošimas.`,
-  alternates: { canonical: "/paslaugos" },
+  alternates: { canonical: absoluteUrl("/paslaugos") },
 };
 
 export default function ServicesPage() {

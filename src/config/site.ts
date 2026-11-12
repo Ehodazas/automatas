@@ -9,9 +9,21 @@ const brands: Record<string, SiteConfig> = {
 };
 
 /** Aktyvus klientas parenkamas aplinkos kintamuoju NEXT_PUBLIC_SITE (numatytasis – „automatas“). */
-const activeId = process.env.NEXT_PUBLIC_SITE ?? automatas.id;
+const activeId = process.env.NEXT_PUBLIC_SITE || automatas.id;
+const brand = brands[activeId] ?? automatas;
 
-export const site: SiteConfig = brands[activeId] ?? automatas;
+/**
+ * Tikrasis svetainės adresas (pvz. https://ehodazas.github.io/automatas).
+ * Paskelbimo metu nustatomas NEXT_PUBLIC_SITE_URL, kitaip naudojamas konfigūracijos domenas.
+ */
+const domain = (process.env.NEXT_PUBLIC_SITE_URL || brand.domain).replace(/\/+$/, "");
+
+export const site: SiteConfig = { ...brand, domain };
+
+/** Absoliuti nuoroda į svetainės puslapį (sitemap, struktūriniai duomenys). */
+export function absoluteUrl(path = "/") {
+  return `${site.domain}${path === "/" ? "/" : `${path.replace(/\/?$/, "/")}`}`;
+}
 
 export const nav = [
   { href: "/", label: "Pagrindinis" },

@@ -41,6 +41,8 @@ export function RequestForm({ kind, title, fields, submitLabel, location = "serv
   const uid = useId();
   const [status, setStatus] = useState<Status>({ state: "idle" });
   const [errors, setErrors] = useState<Record<string, string>>({});
+  /** Paskutinės įvestos reikšmės – kad „Redaguoti užklausą“ neištrintų duomenų. */
+  const [values, setValues] = useState<Record<string, string>>({});
   const loc = site.locations[location] ?? site.locations.service;
 
   function validate(data: FormData) {
@@ -60,6 +62,7 @@ export function RequestForm({ kind, title, fields, submitLabel, location = "serv
   async function onSubmit(ev: React.FormEvent<HTMLFormElement>) {
     ev.preventDefault();
     const data = new FormData(ev.currentTarget);
+    setValues(Object.fromEntries([...data.entries()].map(([k, v]) => [k, String(v)])));
     const e = validate(data);
     setErrors(e);
     if (Object.keys(e).length) {
@@ -89,7 +92,7 @@ export function RequestForm({ kind, title, fields, submitLabel, location = "serv
     }
   }
 
-  const input = `w-full border bg-transparent px-3.5 py-3 text-base outline-none transition-colors placeholder:opacity-40 focus:border-red ${
+  const input = `w-full border bg-transparent px-3.5 py-3 text-base outline-none transition-colors placeholder:opacity-55 focus:border-red ${
     light ? "border-ink/20 text-ink" : "border-line text-white"
   }`;
 
@@ -123,7 +126,7 @@ export function RequestForm({ kind, title, fields, submitLabel, location = "serv
                 <dl className={`mt-6 grid gap-x-6 gap-y-2 border-t pt-5 text-sm sm:grid-cols-[auto_1fr] ${light ? "border-ink/10" : "border-line"}`}>
                   {status.summary.map(([k, v]) => (
                     <div key={k} className="contents">
-                      <dt className={light ? "text-ink/55" : "text-white/50"}>{k}</dt>
+                      <dt className={light ? "text-ink/65" : "text-white/65"}>{k}</dt>
                       <dd className="break-words font-medium">{v}</dd>
                     </div>
                   ))}
@@ -159,7 +162,7 @@ export function RequestForm({ kind, title, fields, submitLabel, location = "serv
             aria-label={title}
           >
             {!site.formEndpoint && (
-              <p className={`mb-6 flex items-start gap-2 text-xs leading-relaxed ${light ? "text-ink/60" : "text-white/55"}`}>
+              <p className={`mb-6 flex items-start gap-2 text-xs leading-relaxed ${light ? "text-ink/70" : "text-white/70"}`}>
                 <InfoIcon className="mt-px h-4 w-4 shrink-0 text-red" />
                 Demonstracinė forma: duomenys nesiunčiami, kol nebus prijungtas tikras siuntimo sprendimas.
               </p>
@@ -176,6 +179,7 @@ export function RequestForm({ kind, title, fields, submitLabel, location = "serv
                   className: `${input} ${err ? "border-red" : ""}`,
                   placeholder: f.placeholder,
                   autoComplete: f.autoComplete,
+                  defaultValue: values[f.name] ?? "",
                 };
                 return (
                   <div key={f.name} className={f.span === 1 ? "" : "sm:col-span-2"}>
@@ -184,7 +188,7 @@ export function RequestForm({ kind, title, fields, submitLabel, location = "serv
                       {f.required && <span className="text-red"> *</span>}
                     </label>
                     {f.type === "select" ? (
-                      <select {...common} defaultValue="" className={`${common.className} appearance-none bg-[length:12px] bg-[right_14px_center] bg-no-repeat [background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23e3261c' stroke-width='1.6'/%3E%3C/svg%3E")]`}>
+                      <select {...common} className={`${common.className} appearance-none bg-[length:12px] bg-[right_14px_center] bg-no-repeat [background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23e3261c' stroke-width='1.6'/%3E%3C/svg%3E")]`}>
                         <option value="" disabled className="text-ink">
                           Pasirinkite…
                         </option>
@@ -209,7 +213,7 @@ export function RequestForm({ kind, title, fields, submitLabel, location = "serv
               })}
               <div className="sm:col-span-2">
                 <label className={`flex cursor-pointer items-start gap-3 text-sm ${light ? "text-ink/70" : "text-white/70"}`}>
-                  <input type="checkbox" name="consent" className="mt-0.5 h-5 w-5 shrink-0 accent-[#e3261c]" aria-invalid={!!errors.consent} />
+                  <input type="checkbox" name="consent" defaultChecked={!!values.consent} className="mt-0.5 h-5 w-5 shrink-0 accent-[#e3261c]" aria-invalid={!!errors.consent} />
                   Sutinku, kad mano pateikti duomenys būtų naudojami tik atsakyti į šią užklausą.
                 </label>
                 {errors.consent && <p className="mt-1 text-xs text-red">{errors.consent}</p>}

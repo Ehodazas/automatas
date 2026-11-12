@@ -23,7 +23,7 @@ export function PriceList({ groups, light = false }: { groups: PriceGroup[]; lig
               aria-controls={`panel-${g.id}`}
               onClick={() => setActive(g.id)}
               className={`relative flex shrink-0 items-center gap-3 px-4 py-3 text-left text-sm font-semibold transition-colors md:py-4 md:text-base ${
-                on ? "text-white" : light ? "text-ink/60 hover:text-ink" : "text-white/55 hover:text-white"
+                on ? "text-white" : light ? "text-ink/70 hover:text-ink" : "text-white/70 hover:text-white"
               }`}
             >
               {on && (
@@ -65,7 +65,7 @@ export function PriceList({ groups, light = false }: { groups: PriceGroup[]; lig
               >
                 <span className="min-w-0">
                   <span className="block font-medium">{item.name}</span>
-                  {item.note && <span className={`mt-0.5 block text-xs ${light ? "text-ink/55" : "text-white/50"}`}>{item.note}</span>}
+                  {item.note && <span className={`mt-0.5 block text-xs ${light ? "text-ink/65" : "text-white/65"}`}>{item.note}</span>}
                 </span>
                 <span aria-hidden className={`mb-1 hidden flex-1 border-b border-dotted sm:block ${light ? "border-ink/25" : "border-white/20"}`} />
                 <span className="ml-auto shrink-0 font-mono text-sm font-medium tabular-nums text-red sm:ml-0">{item.price}</span>

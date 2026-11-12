@@ -42,7 +42,7 @@ export function ServiceIndex() {
               <span className="font-display text-xl font-bold uppercase leading-tight tracking-tight transition-transform duration-300 ease-out-quart [font-stretch:110%] group-hover:translate-x-2 md:text-4xl">
                 {s.title}
               </span>
-              <span className="hidden text-sm leading-relaxed text-white/55 md:block">{s.short}</span>
+              <span className="hidden text-sm leading-relaxed text-white/70 md:block">{s.short}</span>
               <span className="grid h-10 w-10 place-items-center border border-line transition-colors group-hover:border-red group-hover:bg-red">
                 <ArrowIcon className="h-4 w-4 -rotate-45 transition-transform duration-300 group-hover:rotate-0" />
               </span>

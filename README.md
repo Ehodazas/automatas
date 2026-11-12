@@ -1,7 +1,7 @@
 # Automatas – autoserviso svetainės šablonas
 
 Demonstracinė autoserviso ir autodalių parduotuvės svetainė.
-Technologijos: **Next.js 16 (App Router) · TypeScript · Tailwind CSS 4 · Motion for React · GSAP ScrollTrigger**.
+Technologijos: **Next.js 16 (App Router) · TypeScript · Tailwind CSS 4 · Motion for React**.
 
 ## Paleidimas
 

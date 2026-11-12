@@ -114,7 +114,7 @@ export function Header() {
         {open && (
           <motion.div
             id="mobile-menu"
-            className="fixed inset-x-0 bottom-0 top-[88px] z-50 overflow-y-auto bg-ink xl:hidden"
+            className={`fixed inset-x-0 bottom-0 z-50 overflow-y-auto bg-ink xl:hidden ${site.isDemo ? "top-[88px]" : "top-16"}`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

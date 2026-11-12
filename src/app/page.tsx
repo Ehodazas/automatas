@@ -1,11 +1,10 @@
 import Link from "next/link";
 import { site } from "@/config/site";
 import { photos } from "@/content/photos";
-import { partCategories, services } from "@/content/services";
+import { partCategories } from "@/content/services";
 import { Hero } from "@/components/home/Hero";
 import { ServiceIndex } from "@/components/home/ServiceIndex";
 import { ProcessTrack } from "@/components/home/ProcessTrack";
-import { Marquee } from "@/components/Marquee";
 import { PhotoFrame } from "@/components/PhotoFrame";
 import { PriceList } from "@/components/PriceList";
 import { ButtonLink, Notice, SectionHead } from "@/components/ui";
@@ -18,7 +17,7 @@ export default function HomePage() {
       <Hero />
 
       {/* Paslaugos */}
-      <section className="py-24 md:py-32">
+      <section className="py-20 md:py-32">
         <div className="container-x">
           <SectionHead
             index="01"
@@ -42,10 +41,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <Marquee items={services.map((s) => s.title)} />
 
       {/* Darbo eiga */}
-      <section className="relative overflow-hidden bg-graphite py-24 md:py-32">
+      <section className="relative overflow-hidden bg-graphite py-20 md:py-32">
         <div className="container-x">
           <SectionHead
             index="02"
@@ -60,7 +58,7 @@ export default function HomePage() {
       </section>
 
       {/* Du padaliniai */}
-      <section className="py-24 md:py-32">
+      <section className="py-20 md:py-32">
         <div className="container-x">
           <SectionHead
             index="03"
@@ -73,7 +71,7 @@ export default function HomePage() {
               { loc: service, photo: photos.underCar, href: "/paslaugos", cta: "Paslaugos" },
               ...(shop ? [{ loc: shop, photo: photos.wheels, href: "/autodaliu-parduotuve", cta: "Parduotuvė" }] : []),
             ].map(({ loc, photo, href, cta }, i) => (
-              <article key={loc.id} className="group relative flex min-h-[480px] flex-col justify-end overflow-hidden md:min-h-[560px]">
+              <article key={loc.id} className="group relative flex min-h-[400px] flex-col justify-end overflow-hidden md:min-h-[560px]">
                 <PhotoFrame photo={photo} className="absolute! inset-0" sizes="(min-width:768px) 50vw, 100vw" />
                 <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/10" />
                 <div className="relative p-6 md:p-10">
@@ -128,7 +126,7 @@ export default function HomePage() {
       )}
 
       {/* Autodalys */}
-      <section className="py-24 md:py-32">
+      <section className="py-20 md:py-32">
         <div className="container-x grid gap-12 md:grid-cols-12 md:gap-16">
           <div className="md:col-span-5">
             <SectionHead index={site.prices ? "05" : "04"} eyebrow="Autodalių parduotuvė" title="Detalė pagal jūsų automobilį" />
@@ -143,7 +141,7 @@ export default function HomePage() {
             {partCategories.slice(0, 6).map((c) => (
               <li key={c.title} className="bg-ink p-5 transition-colors hover:bg-graphite md:p-7">
                 <p className="font-display text-lg font-bold uppercase leading-tight [font-stretch:108%]">{c.title}</p>
-                <p className="mt-2 text-xs leading-relaxed text-white/50">{c.items}</p>
+                <p className="mt-2 text-xs leading-relaxed text-white/65">{c.items}</p>
               </li>
             ))}
           </ul>

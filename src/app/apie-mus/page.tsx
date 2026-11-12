@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { site } from "@/config/site";
+import { absoluteUrl, site } from "@/config/site";
 import { photos } from "@/content/photos";
 import { Gallery } from "@/components/Gallery";
 import { ButtonLink, Notice, PageHero, SectionHead } from "@/components/ui";
@@ -8,7 +8,7 @@ import { InfoIcon } from "@/components/icons";
 export const metadata: Metadata = {
   title: "Apie mus",
   description: `${site.legalName} – ${site.tagline.toLowerCase()} ${site.city.locative}.`,
-  alternates: { canonical: "/apie-mus" },
+  alternates: { canonical: absoluteUrl("/apie-mus") },
 };
 
 export default function AboutPage() {

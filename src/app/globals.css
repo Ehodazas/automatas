@@ -5,7 +5,7 @@
   --color-graphite: #1b1e22;
   --color-steel: #2a2e34;
   --color-line: #33383f;
-  --color-mute: #8d949e;
+  --color-mute: #a3aab3;
   --color-paper: #f4f3f0;
   --color-bone: #e7e5e0;
   --color-red: #e3261c;
@@ -13,7 +13,7 @@
 
   --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-plex), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+  --font-mono: var(--font-plex), ui-sans-serif, system-ui, sans-serif;
 
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
 }
@@ -61,6 +61,7 @@ body {
 .eyebrow {
   font-family: var(--font-mono);
   font-size: 0.72rem;
+  font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -83,19 +84,8 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-@keyframes marquee {
-  to {
-    transform: translateX(-50%);
-  }
-}
-.marquee-track {
-  animation: marquee 45s linear infinite;
-}
 
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track {
-    animation: none !important;
-  }
   html {
     scroll-behavior: auto;
   }

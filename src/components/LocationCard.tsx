@@ -24,14 +24,14 @@ export function LocationCard({ loc, index, withMap = true }: { loc: Location; in
           <span className="text-red">{index}</span>
           {loc.label}
         </p>
-        {loc.isPlaceholder && <span className="font-mono text-[10px] uppercase tracking-wider text-white/45">Pavyzdiniai duomenys</span>}
+        {loc.isPlaceholder && <span className="font-mono text-[10px] uppercase tracking-wider text-white/60">Pavyzdiniai duomenys</span>}
       </div>
       <div className="grid gap-5 p-5 md:p-7">
         <a href={mapsLink} target="_blank" rel="noopener noreferrer" className="group flex items-start gap-3">
           <PinIcon className="mt-0.5 h-5 w-5 shrink-0 text-red" />
           <span>
             <span className="block font-display text-2xl font-bold uppercase leading-tight [font-stretch:108%]">{loc.address}</span>
-            <span className="mt-1 block text-xs text-white/50 underline-offset-4 group-hover:underline">Atidaryti Google Maps</span>
+            <span className="mt-1 block text-xs text-white/65 underline-offset-4 group-hover:underline">Atidaryti Google Maps</span>
           </span>
         </a>
         <a href={`tel:${loc.phoneHref}`} className="flex h-12 items-center gap-3 bg-red px-4 font-semibold text-white transition-colors hover:bg-red-deep">

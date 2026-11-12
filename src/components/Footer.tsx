@@ -41,7 +41,7 @@ export function Footer() {
         </nav>
       </div>
       <div className="border-t border-line">
-        <div className="container-x flex flex-col gap-2 py-6 text-xs text-white/45 md:flex-row md:justify-between">
+        <div className="container-x flex flex-col gap-2 py-6 text-xs text-white/60 md:flex-row md:justify-between">
           <p>
             © {year} {site.legalName}
             {site.companyCode ? ` · Įmonės kodas ${site.companyCode}` : ""}
