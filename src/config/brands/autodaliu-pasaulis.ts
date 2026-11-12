@@ -23,6 +23,22 @@ export const autodaliuPasaulis: SiteConfig = {
       mapQuery: "Dariaus ir Girėno g. 57A, Plungė",
       phone: "+370 615 29206",
       phoneHref: "+37061529206",
+      // Šaltinis – trečiosios šalies katalogas. PRIEŠ PUBLIKUOJANT BŪTINA PATVIRTINTI SU ĮMONE.
+      hours: [
+        { days: "Pirmadienis–penktadienis", time: "08:00–17:00" },
+        { days: "Šeštadienis–sekmadienis", time: "nedirba" },
+      ],
+      details: [
+        {
+          title: "Prieinamumas",
+          items: ["Įėjimas pritaikytas neįgaliųjų vežimėliams", "Automobilių stovėjimo vieta, pritaikyta neįgaliesiems"],
+        },
+        {
+          title: "Atsiskaitymas",
+          items: ["Debeto ir kredito kortelės", "NFC mobilieji mokėjimai"],
+        },
+      ],
+      unverifiedSource: { name: "autobolidas.lt", url: "https://autobolidas.lt/uab-autodaliu-pasaulis-plunge/" },
     },
     shop: {
       id: "shop",

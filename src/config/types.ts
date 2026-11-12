@@ -16,8 +16,16 @@ export type Location = {
   /** Tel. numeris be tarpų – `tel:` nuorodai */
   phoneHref: string;
   email?: string;
-  /** Patvirtintos darbo valandos. Jei nėra – rodomas prašymas pasitikslinti telefonu. */
+  /** Darbo valandos. Jei nėra – rodomas prašymas pasitikslinti telefonu. */
   hours?: { days: string; time: string }[];
+  /** Praktinė informacija: prieinamumas, atsiskaitymo būdai ir pan. */
+  details?: { title: string; items: string[] }[];
+  /**
+   * Jei nurodyta – `hours` ir `details` paimti iš trečiosios šalies šaltinio ir NĖRA patvirtinti įmonės.
+   * Svetainėje jie pažymimi „Reikia patvirtinti“ ir neįtraukiami į struktūrinius duomenis.
+   * Gavus įmonės patvirtinimą, šį lauką ištrinkite.
+   */
+  unverifiedSource?: { name: string; url: string };
   /** Pažymi, kad adresas / telefonas yra demonstraciniai, ne tikri. */
   isPlaceholder?: boolean;
 };

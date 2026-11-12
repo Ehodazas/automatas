@@ -24,6 +24,16 @@ export function Footer() {
             <a href={`tel:${loc!.phoneHref}`} className="mt-1 block text-sm font-semibold hover:text-red">
               {loc!.phone}
             </a>
+            {loc!.hours?.length ? (
+              <ul className="mt-3 space-y-0.5 text-xs text-white/70">
+                {loc!.hours.map((h) => (
+                  <li key={h.days}>
+                    {h.days}: <span className="tabular-nums text-white/85">{h.time}</span>
+                  </li>
+                ))}
+                {loc!.unverifiedSource && <li className="text-red">Darbo laikas dar nepatvirtintas įmonės</li>}
+              </ul>
+            ) : null}
           </div>
         ))}
 
