@@ -25,6 +25,11 @@ export type Location = {
 export type PriceItem = { name: string; price: string; note?: string };
 export type PriceGroup = { id: string; title: string; items: PriceItem[] };
 
+/** Formų siuntimo paslauga (veikia be savo serverio). */
+export type FormProvider =
+  | { type: "web3forms"; accessKey: string }
+  | { type: "formspree"; formId: string };
+
 export type SiteConfig = {
   id: string;
   /** Prekės ženklas, rodomas logotipe */
@@ -48,10 +53,10 @@ export type SiteConfig = {
   /** Ar kainos yra pavyzdinės (rodomas įspėjimas) */
   pricesAreExample?: boolean;
   /**
-   * Formų siuntimo adresas (API endpoint). Kol `null`, formos NIEKUR nesiunčia duomenų
+   * Formų siuntimo paslauga. Kol `null`, formos NIEKUR nesiunčia duomenų
    * ir aiškiai praneša, kad tai demonstracinė versija.
    */
-  formEndpoint: string | null;
+  forms: FormProvider | null;
   /** Ar tai demonstracinė (neoficiali) svetainė */
   isDemo: boolean;
   /** Papildomi SEO raktažodžiai */

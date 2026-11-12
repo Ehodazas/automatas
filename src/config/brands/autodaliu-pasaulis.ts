@@ -42,7 +42,7 @@ export const autodaliuPasaulis: SiteConfig = {
     "Įmonė remontuoja ir prižiūri lengvuosius automobilius bei mikroautobusus, atlieka diagnostiką ir prekiauja naujomis automobilių atsarginėmis dalimis. Autoservisas ir parduotuvė veikia skirtingais adresais.",
   ],
   prices: null,
-  formEndpoint: null,
+  forms: null,
   isDemo: true,
   keywords: ["Autodalių pasaulis", "autodalių pasaulis Plungė"],
 };

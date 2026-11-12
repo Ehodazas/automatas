@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { useId, useState } from "react";
 import { site } from "@/config/site";
 import { CheckIcon, InfoIcon, PhoneIcon } from "../icons";
+import { submitForm } from "@/lib/submit-form";
 
 export type Field = {
   name: string;
@@ -34,7 +35,7 @@ type Status = { state: "idle" } | { state: "sending" } | { state: "demo"; summar
 
 /**
  * Universali užklausos forma.
- * Kol `site.formEndpoint` yra `null`, duomenys NIEKUR neišsiunčiami – lankytojui aiškiai parodoma,
+ * Kol `site.forms` yra `null`, duomenys NIEKUR neišsiunčiami – lankytojui aiškiai parodoma,
  * kad tai demonstracinė forma, ir pasiūloma paskambinti.
  */
 export function RequestForm({ kind, title, fields, submitLabel, location = "service", light = false }: Props) {
@@ -71,22 +72,28 @@ export function RequestForm({ kind, title, fields, submitLabel, location = "serv
       return;
     }
 
-    if (!site.formEndpoint) {
-      const summary = fields
-        .map((f) => [f.label, String(data.get(f.name) ?? "").trim()] as [string, string])
-        .filter(([, v]) => v);
+    // Paslėptas laukas robotams: žmogus jo nemato ir neužpildo.
+    if (String(data.get("botcheck") ?? "")) return;
+
+    const summary = fields
+      .map((f) => [f.label, String(data.get(f.name) ?? "").trim()] as [string, string])
+      .filter(([, v]) => v);
+
+    if (!site.forms) {
       setStatus({ state: "demo", summary });
       return;
     }
 
     setStatus({ state: "sending" });
     try {
-      const res = await fetch(site.formEndpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ kind, ...Object.fromEntries(data) }),
+      const ok = await submitForm({
+        provider: site.forms,
+        title,
+        brand: site.brand,
+        entries: [["Forma", title], ["Padalinys", loc.label], ...summary],
+        replyTo: String(data.get("elpastas") ?? "").trim() || undefined,
       });
-      setStatus(res.ok ? { state: "sent" } : { state: "error" });
+      setStatus(ok ? { state: "sent" } : { state: "error" });
     } catch {
       setStatus({ state: "error" });
     }
@@ -161,12 +168,13 @@ export function RequestForm({ kind, title, fields, submitLabel, location = "serv
             exit={{ opacity: 0 }}
             aria-label={title}
           >
-            {!site.formEndpoint && (
+            {!site.forms && (
               <p className={`mb-6 flex items-start gap-2 text-xs leading-relaxed ${light ? "text-ink/70" : "text-white/70"}`}>
                 <InfoIcon className="mt-px h-4 w-4 shrink-0 text-red" />
                 Demonstracinė forma: duomenys nesiunčiami, kol nebus prijungtas tikras siuntimo sprendimas.
               </p>
             )}
+            <input type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" aria-hidden className="hidden" />
             <div className="grid gap-x-4 gap-y-5 sm:grid-cols-2">
               {fields.map((f) => {
                 const id = `${uid}-${f.name}`;

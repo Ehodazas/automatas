@@ -35,8 +35,14 @@ SEO frazės („autoservisas Plungėje“, „autodalys Plungėje“, „automob
 
 ## Formos
 
-Kol `formEndpoint: null`, formos **nieko nesiunčia** – lankytojui parodoma, kad tai demonstracinė versija, ir pasiūloma paskambinti.
-Prijungus tikrą siuntimą (pvz. API maršrutą ar Formspree) ir gavus įmonės sutikimą, nurodykite adresą konfigūracijoje.
+Kol `forms: null`, formos **nieko nesiunčia** – lankytojui parodoma, kad tai demonstracinė versija, ir pasiūloma paskambinti.
+
+Formoms įjungti (laiškai ateina į el. paštą, savo serverio nereikia):
+
+- **Web3Forms**: web3forms.com įveskite el. paštą, gausite *Access Key* → `forms: { type: "web3forms", accessKey: "..." }`
+- **Formspree**: formspree.io sukurkite formą → `forms: { type: "formspree", formId: "xxxxxxx" }`
+
+Raktas nėra slaptas – jis skirtas būti svetainės kode. Tikros įmonės svetainėje formas junkite tik su įmonės sutikimu.
 
 ## Nuotraukos
 

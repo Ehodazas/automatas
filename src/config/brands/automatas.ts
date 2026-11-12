@@ -95,7 +95,7 @@ export const automatas: SiteConfig = {
       ],
     },
   ],
-  formEndpoint: null,
+  forms: null,
   isDemo: true,
   keywords: ["automatas autoservisas"],
 };
