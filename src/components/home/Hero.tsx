@@ -16,7 +16,7 @@ export function Hero() {
   const imgY = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
   const s = site.locations.service;
 
-  const lines = ["Remontas", "be spėlionių."];
+  const lines = ["Autoservisas", site.city.locative];
 
   return (
     <section ref={ref} className="relative isolate flex min-h-[100svh] flex-col overflow-hidden">
@@ -44,12 +44,12 @@ export function Hero() {
           transition={{ duration: 0.6, ease, delay: 0.1 }}
         >
           <span className="h-px w-8 bg-red" />
-          Autoservisas ir autodalys {site.city.locative}
+          Remontas · Diagnostika · Autodalys
         </motion.p>
 
-        <h1 className="mt-6 font-display text-[clamp(3rem,11vw,9.5rem)] font-extrabold uppercase leading-[0.86] tracking-[-0.02em] [font-stretch:118%]">
+        <h1 className="mt-6 font-display text-[clamp(2.2rem,8.3vw,8.6rem)] font-extrabold uppercase leading-[0.84] tracking-[-0.02em] [font-stretch:118%]">
           {lines.map((line, i) => (
-            <span key={line} className="block overflow-hidden pb-[0.04em]">
+            <span key={line} className="block overflow-hidden pb-[0.04em] pt-[0.12em]">
               <motion.span
                 className={`block ${i === 1 ? "text-red" : ""}`}
                 initial={{ y: "105%" }}
@@ -69,7 +69,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease, delay: 0.5 }}
           >
-            {site.tagline}. Pirmiausia diagnozuojame, tada paaiškiname ir tik po to remontuojame.
+            {site.tagline}.
           </motion.p>
 
           <motion.div
