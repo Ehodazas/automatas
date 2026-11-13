@@ -1,4 +1,5 @@
 import type { Location } from "@/config/types";
+import { MapEmbed } from "./MapEmbed";
 import { ClockIcon, InfoIcon, MailIcon, PhoneIcon, PinIcon } from "./icons";
 
 /** Žymė informacijai, kurią dar turi patvirtinti įmonė. */
@@ -7,20 +8,6 @@ export function UnverifiedBadge() {
     <span className="inline-block border border-red/60 px-1.5 py-px text-[10px] font-semibold uppercase tracking-wider text-red">
       Reikia patvirtinti
     </span>
-  );
-}
-
-export function MapEmbed({ query, title }: { query: string; title: string }) {
-  return (
-    <div className="relative aspect-[4/3] w-full overflow-hidden bg-steel md:aspect-[16/10]">
-      <iframe
-        title={title}
-        src={`https://www.google.com/maps?q=${encodeURIComponent(query)}&z=15&output=embed`}
-        className="absolute inset-0 h-full w-full grayscale-[0.85] invert-[0.92] hue-rotate-180 contrast-[0.9]"
-        loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-      />
-    </div>
   );
 }
 

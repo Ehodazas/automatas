@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
 import { useId, useState } from "react";
 import { site } from "@/config/site";
@@ -222,8 +223,17 @@ export function RequestForm({ kind, title, fields, submitLabel, location = "serv
               <div className="sm:col-span-2">
                 <label className={`flex cursor-pointer items-start gap-3 text-sm ${light ? "text-ink/70" : "text-white/70"}`}>
                   <input type="checkbox" name="consent" defaultChecked={!!values.consent} className="mt-0.5 h-5 w-5 shrink-0 accent-[#e3261c]" aria-invalid={!!errors.consent} />
-                  Sutinku, kad mano pateikti duomenys būtų naudojami tik atsakyti į šią užklausą.
+                  <span>
+                    Sutinku, kad mano pateikti duomenys būtų naudojami tik atsakyti į šią užklausą.
+                  </span>
                 </label>
+                <p className={`mt-1.5 pl-8 text-xs ${light ? "text-ink/60" : "text-white/60"}`}>
+                  Daugiau –{" "}
+                  <Link href="/privatumo-politika" className="underline underline-offset-2">
+                    privatumo politikoje
+                  </Link>
+                  .
+                </p>
                 {errors.consent && <p className="mt-1 text-xs text-red">{errors.consent}</p>}
               </div>
             </div>

@@ -58,7 +58,10 @@ export function Footer() {
           </p>
           <p>
             {site.isDemo && "Neoficiali demonstracinė svetainė. "}
-            Pažymėtos nuotraukos – iliustracinės (Unsplash), ne įmonės.
+            Pažymėtos nuotraukos – iliustracinės (Unsplash), ne įmonės.{" "}
+            <Link href="/privatumo-politika" className="underline underline-offset-2 hover:text-white">
+              Privatumo politika
+            </Link>
           </p>
         </div>
       </div>
