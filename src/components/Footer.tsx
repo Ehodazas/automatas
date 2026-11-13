@@ -28,7 +28,7 @@ export function Footer() {
               <ul className="mt-3 space-y-0.5 text-xs text-white/70">
                 {loc!.hours.map((h) => (
                   <li key={h.days}>
-                    {h.days}: <span className="tabular-nums text-white/85">{h.time}</span>
+                    {h.days}: <span className="whitespace-nowrap tabular-nums text-white/85">{h.time}</span>
                   </li>
                 ))}
                 {loc!.unverifiedSource && <li className="text-red">Darbo laikas dar nepatvirtintas įmonės</li>}

@@ -59,11 +59,11 @@ export function LocationCard({ loc, index, withMap = true }: { loc: Location; in
               <p className="flex flex-wrap items-center gap-2 font-semibold text-white">
                 Darbo laikas {loc.unverifiedSource && <UnverifiedBadge />}
               </p>
-              <dl className="mt-1.5 grid grid-cols-[auto_1fr] gap-x-4 gap-y-0.5">
+              <dl className="mt-1.5 space-y-1">
                 {loc.hours.map((h) => (
-                  <div key={h.days} className="contents">
+                  <div key={h.days} className="flex flex-wrap justify-between gap-x-3">
                     <dt>{h.days}</dt>
-                    <dd className="font-medium tabular-nums text-white">{h.time}</dd>
+                    <dd className="whitespace-nowrap font-medium tabular-nums text-white">{h.time}</dd>
                   </div>
                 ))}
               </dl>
