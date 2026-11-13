@@ -44,9 +44,9 @@ export default function ShopPage() {
           <SectionHead index="01" eyebrow="Kategorijos" title="Prekių grupės" />
           <ul className="mt-12 grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-4">
             {partCategories.map((c, i) => (
-              <li key={c.title} className="group relative bg-ink p-6 transition-colors hover:bg-graphite md:p-8">
+              <li key={c.title} className="group relative @container min-w-0 bg-ink p-6 transition-colors hover:bg-graphite md:p-8">
                 <span className="font-mono text-xs text-mute group-hover:text-red">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="mt-8 font-display text-xl font-bold uppercase leading-tight [font-stretch:110%]">{c.title}</h3>
+                <h3 className="mt-8 font-display text-[min(1.25rem,8.4cqi)] font-bold uppercase leading-tight [font-stretch:110%]">{c.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-white/70">{c.items}</p>
                 <span aria-hidden className="absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 bg-red transition-transform duration-500 ease-out-quart group-hover:scale-x-100" />
               </li>

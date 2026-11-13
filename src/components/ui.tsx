@@ -48,13 +48,13 @@ export function SectionHead({
 }) {
   return (
     <div className="grid gap-6 md:grid-cols-12 md:items-end">
-      <div className="md:col-span-7">
+      <div className="@container min-w-0 md:col-span-7">
         <p className={`eyebrow flex items-center gap-3 ${light ? "text-ink/65" : "text-mute"}`}>
           {index && <span className="text-red">{index}</span>}
           <span className={`h-px w-8 ${light ? "bg-ink/25" : "bg-line"}`} />
           {eyebrow}
         </p>
-        <h2 className="mt-4 font-display text-[clamp(1.1rem,calc(0.7rem_+_3.6vw),3.6rem)] font-extrabold uppercase leading-[0.95] tracking-tight [font-stretch:112%]">
+        <h2 className="mt-4 font-display text-[clamp(1.1rem,9cqi,3.6rem)] font-extrabold uppercase leading-[0.95] tracking-tight [font-stretch:112%]">
           {title}
         </h2>
       </div>

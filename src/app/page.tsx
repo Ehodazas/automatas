@@ -71,14 +71,14 @@ export default function HomePage() {
               { loc: service, photo: photos.underCar, href: "/paslaugos", cta: "Paslaugos" },
               ...(shop ? [{ loc: shop, photo: photos.wheels, href: "/autodaliu-parduotuve", cta: "Parduotuvė" }] : []),
             ].map(({ loc, photo, href, cta }, i) => (
-              <article key={loc.id} className="group relative flex min-h-[400px] flex-col justify-end overflow-hidden md:min-h-[560px]">
+              <article key={loc.id} className="@container group relative flex min-h-[400px] flex-col justify-end overflow-hidden md:min-h-[560px]">
                 <PhotoFrame photo={photo} className="absolute! inset-0" sizes="(min-width:768px) 50vw, 100vw" />
                 <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/10" />
                 <div className="relative p-6 md:p-10">
                   <p className="eyebrow text-white/70">
                     <span className="text-red">0{i + 1}</span> · {loc.label}
                   </p>
-                  <h3 className="mt-3 font-display text-[clamp(1.2rem,8.4vw,2.25rem)] font-extrabold uppercase leading-none [font-stretch:112%] md:text-5xl">
+                  <h3 className="mt-3 font-display text-[min(3rem,9cqi)] font-extrabold uppercase leading-none [font-stretch:112%]">
                     {loc.id === "service" ? "Remontas ir priežiūra" : "Naujos autodalys"}
                   </h3>
                   <p className="mt-4 flex items-center gap-2 text-white/80">
@@ -137,10 +137,10 @@ export default function HomePage() {
               <ButtonLink href="/autodaliu-parduotuve#uzklausa">Užklausti detalės</ButtonLink>
             </div>
           </div>
-          <ul className="grid grid-cols-2 gap-px bg-line md:col-span-7">
+          <ul className="grid grid-cols-1 gap-px bg-line min-[360px]:grid-cols-2 md:col-span-7">
             {partCategories.slice(0, 6).map((c) => (
-              <li key={c.title} className="bg-ink p-5 transition-colors hover:bg-graphite md:p-7">
-                <p className="font-display text-lg font-bold uppercase leading-tight [font-stretch:108%]">{c.title}</p>
+              <li key={c.title} className="@container min-w-0 bg-ink p-4 transition-colors hover:bg-graphite sm:p-5 md:p-7">
+                <p className="font-display text-[min(1.125rem,8.6cqi)] font-bold uppercase leading-tight [font-stretch:108%]">{c.title}</p>
                 <p className="mt-2 text-xs leading-relaxed text-white/65">{c.items}</p>
               </li>
             ))}

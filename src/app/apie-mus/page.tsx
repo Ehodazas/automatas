@@ -35,9 +35,9 @@ export default function AboutPage() {
           </div>
           <dl className="grid grid-cols-1 gap-px self-start bg-line min-[480px]:grid-cols-2 md:col-span-5 md:mt-24 md:grid-cols-1 xl:grid-cols-2">
             {facts.map((f) => (
-              <div key={f.k} className="bg-ink p-5 md:p-6">
+              <div key={f.k} className="@container min-w-0 bg-ink p-5 md:p-6">
                 <dt className="eyebrow text-mute">{f.k}</dt>
-                <dd className="mt-3 font-display text-[clamp(0.95rem,5vw,1.125rem)] font-bold uppercase leading-tight [font-stretch:108%]">{f.v}</dd>
+                <dd className="mt-3 font-display text-[min(1.125rem,8.6cqi)] font-bold uppercase leading-tight [font-stretch:108%]">{f.v}</dd>
               </div>
             ))}
           </dl>
