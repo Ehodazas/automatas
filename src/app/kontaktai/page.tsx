@@ -17,7 +17,7 @@ export default function ContactPage() {
   return (
     <>
       <PageHero eyebrow="Kontaktai" title="Susisiekite" intro="Autoservisas ir autodalių parduotuvė turi atskirus adresus ir telefonus – skambinkite tiesiai reikiamam padaliniui.">
-        <a href={`mailto:${site.email}`} className="mt-8 inline-flex items-center gap-2 text-white/85 underline decoration-red underline-offset-4 hover:text-white">
+        <a href={`mailto:${site.email}`} className="mt-8 inline-flex max-w-full items-center gap-2 text-white/85 [overflow-wrap:anywhere] underline decoration-red underline-offset-4 hover:text-white">
           <MailIcon className="h-4 w-4 text-red" /> {site.email}
         </a>
       </PageHero>

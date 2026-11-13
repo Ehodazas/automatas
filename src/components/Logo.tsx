@@ -13,7 +13,7 @@ export function Logo({ className = "" }: { className?: string }) {
         />
         <circle cx="16" cy="16" r="5.2" className="fill-ink" />
       </svg>
-      <span className="font-display text-[1.15rem] font-extrabold uppercase tracking-tight [font-stretch:115%]">
+      <span className="whitespace-nowrap font-display text-[0.95rem] font-extrabold uppercase tracking-tight [font-stretch:115%] min-[360px]:text-base min-[400px]:text-[1.15rem]">
         {site.brand}
       </span>
     </Link>

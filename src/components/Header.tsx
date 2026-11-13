@@ -42,7 +42,7 @@ export function Header() {
           Neoficiali demonstracinė svetainė
         </div>
       )}
-      <div className="container-x flex h-16 items-center justify-between gap-6">
+      <div className="container-x flex h-16 items-center justify-between gap-3 sm:gap-6">
         <Logo />
 
         <nav aria-label="Pagrindinė navigacija" className="hidden xl:block">
@@ -91,7 +91,7 @@ export function Header() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="relative -mr-2 grid h-11 w-11 place-items-center xl:hidden"
+          className="relative -mr-2 grid h-11 w-11 shrink-0 place-items-center xl:hidden"
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label={open ? "Uždaryti meniu" : "Atidaryti meniu"}

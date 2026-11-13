@@ -27,8 +27,8 @@ export function MapEmbed({ query, title }: { query: string; title: string }) {
 export function LocationCard({ loc, index, withMap = true }: { loc: Location; index: string; withMap?: boolean }) {
   const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(loc.mapQuery)}`;
   return (
-    <article className="flex flex-col border border-line bg-graphite">
-      <div className="flex items-center justify-between border-b border-line px-5 py-4 md:px-7">
+    <article className="flex min-w-0 flex-col border border-line bg-graphite">
+      <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 border-b border-line px-5 py-4 md:px-7">
         <p className="eyebrow flex items-center gap-3 text-white/70">
           <span className="text-red">{index}</span>
           {loc.label}
@@ -39,7 +39,7 @@ export function LocationCard({ loc, index, withMap = true }: { loc: Location; in
         <a href={mapsLink} target="_blank" rel="noopener noreferrer" className="group flex items-start gap-3">
           <PinIcon className="mt-0.5 h-5 w-5 shrink-0 text-red" />
           <span>
-            <span className="block font-display text-2xl font-bold uppercase leading-tight [font-stretch:108%]">{loc.address}</span>
+            <span className="block font-display text-xl font-bold uppercase leading-tight [overflow-wrap:anywhere] [font-stretch:108%] min-[380px]:text-2xl">{loc.address}</span>
             <span className="mt-1 block text-xs text-white/65 underline-offset-4 group-hover:underline">Atidaryti Google Maps</span>
           </span>
         </a>
@@ -48,7 +48,7 @@ export function LocationCard({ loc, index, withMap = true }: { loc: Location; in
           {loc.phone}
         </a>
         {loc.email && (
-          <a href={`mailto:${loc.email}`} className="flex items-center gap-3 text-sm text-white/80 hover:text-white">
+          <a href={`mailto:${loc.email}`} className="flex min-w-0 items-center gap-3 text-sm text-white/80 [overflow-wrap:anywhere] hover:text-white">
             <MailIcon className="h-4 w-4 text-red" /> {loc.email}
           </a>
         )}

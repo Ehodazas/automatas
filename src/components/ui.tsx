@@ -54,7 +54,7 @@ export function SectionHead({
           <span className={`h-px w-8 ${light ? "bg-ink/25" : "bg-line"}`} />
           {eyebrow}
         </p>
-        <h2 className="mt-4 font-display text-[clamp(2rem,4.6vw,3.6rem)] font-extrabold uppercase leading-[0.95] tracking-tight [font-stretch:112%]">
+        <h2 className="mt-4 font-display text-[clamp(1.75rem,4.6vw,3.6rem)] font-extrabold uppercase leading-[0.95] tracking-tight [font-stretch:112%]">
           {title}
         </h2>
       </div>
@@ -78,7 +78,7 @@ export function PageHero({ eyebrow, title, intro, children }: { eyebrow: string;
           <span className="h-px w-8 bg-red" />
           {eyebrow}
         </p>
-        <h1 className="mt-5 max-w-5xl font-display text-[clamp(2.4rem,7vw,5.6rem)] font-extrabold uppercase leading-[0.92] tracking-tight [font-stretch:115%]">
+        <h1 className="mt-5 max-w-5xl font-display text-[clamp(1.9rem,8.5vw,5.6rem)] font-extrabold uppercase leading-[0.92] tracking-tight [font-stretch:115%]">
           {title}
         </h1>
         {intro && <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/70">{intro}</p>}

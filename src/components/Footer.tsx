@@ -12,7 +12,7 @@ export function Footer() {
         <div className="md:col-span-4">
           <Logo />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/60">{site.tagline}.</p>
-          <a href={`mailto:${site.email}`} className="mt-6 inline-block text-sm text-white underline decoration-red underline-offset-4">
+          <a href={`mailto:${site.email}`} className="mt-6 inline-block max-w-full text-sm text-white [overflow-wrap:anywhere] underline decoration-red underline-offset-4">
             {site.email}
           </a>
         </div>

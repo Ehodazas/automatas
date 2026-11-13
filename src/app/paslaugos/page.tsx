@@ -46,12 +46,12 @@ export default function ServicesPage() {
             id={s.slug}
             className="group grid scroll-mt-28 gap-8 border-b border-line py-14 md:grid-cols-12 md:gap-12 md:py-20"
           >
-            <div className={`md:col-span-6 ${i % 2 ? "md:order-2" : ""}`}>
+            <div className={`min-w-0 md:col-span-6 ${i % 2 ? "md:order-2" : ""}`}>
               <PhotoFrame photo={s.photo} className="aspect-[4/3]" sizes="(min-width:768px) 50vw, 100vw" />
             </div>
-            <div className="flex flex-col justify-center md:col-span-6">
+            <div className="flex min-w-0 flex-col justify-center md:col-span-6">
               <p className="font-mono text-xs text-red">{String(i + 1).padStart(2, "0")} / {String(services.length).padStart(2, "0")}</p>
-              <h2 className="mt-3 font-display text-[clamp(2rem,4vw,3.2rem)] font-extrabold uppercase leading-[0.95] [font-stretch:112%]">
+              <h2 className="mt-3 font-display text-[clamp(1.5rem,7.4vw,3.2rem)] font-extrabold uppercase leading-[0.95] [font-stretch:112%]">
                 {s.title}
               </h2>
               <p className="mt-5 max-w-lg leading-relaxed text-white/70">{s.description}</p>

@@ -97,3 +97,12 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Saugiklis: per ilgas žodis telefone lūžta, o ne išlenda už ekrano. */
+h1,
+h2,
+h3,
+dd {
+  overflow-wrap: break-word;
+  hyphens: manual;
+}
