@@ -78,7 +78,7 @@ export default function HomePage() {
                   <p className="eyebrow text-white/70">
                     <span className="text-red">0{i + 1}</span> · {loc.label}
                   </p>
-                  <h3 className="mt-3 font-display text-[1.75rem] font-extrabold uppercase leading-none [font-stretch:112%] min-[380px]:text-4xl md:text-5xl">
+                  <h3 className="mt-3 font-display text-[clamp(1.2rem,8.4vw,2.25rem)] font-extrabold uppercase leading-none [font-stretch:112%] md:text-5xl">
                     {loc.id === "service" ? "Remontas ir priežiūra" : "Naujos autodalys"}
                   </h3>
                   <p className="mt-4 flex items-center gap-2 text-white/80">
@@ -153,7 +153,7 @@ export default function HomePage() {
         <PhotoFrame photo={photos.workshopNight} className="absolute! inset-0" />
         <div aria-hidden className="absolute inset-0 bg-ink/80" />
         <div className="container-x relative py-24 md:py-36">
-          <h2 className="max-w-4xl font-display text-[clamp(1.7rem,8.3vw,6rem)] font-extrabold uppercase leading-[0.9] [font-stretch:118%]">
+          <h2 className="max-w-4xl font-display text-[clamp(1.1rem,8.3vw,6rem)] font-extrabold uppercase leading-[0.9] [font-stretch:118%]">
             Registracija <span className="text-red">remontui</span>
           </h2>
           <p className="mt-6 max-w-xl text-lg text-white/75">Užpildykite trumpą formą arba paskambinkite – suderinsime laiką.</p>

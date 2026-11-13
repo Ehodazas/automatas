@@ -39,7 +39,7 @@ export function LocationCard({ loc, index, withMap = true }: { loc: Location; in
         <a href={mapsLink} target="_blank" rel="noopener noreferrer" className="group flex items-start gap-3">
           <PinIcon className="mt-0.5 h-5 w-5 shrink-0 text-red" />
           <span>
-            <span className="block font-display text-xl font-bold uppercase leading-tight [overflow-wrap:anywhere] [font-stretch:108%] min-[380px]:text-2xl">{loc.address}</span>
+            <span className="block font-display text-[clamp(0.9rem,5.2vw,1.5rem)] font-bold uppercase leading-tight [overflow-wrap:anywhere] [font-stretch:108%]">{loc.address}</span>
             <span className="mt-1 block text-xs text-white/65 underline-offset-4 group-hover:underline">Atidaryti Google Maps</span>
           </span>
         </a>

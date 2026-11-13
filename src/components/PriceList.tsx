@@ -11,7 +11,7 @@ export function PriceList({ groups, light = false }: { groups: PriceGroup[]; lig
 
   return (
     <div className="grid gap-8 md:grid-cols-12">
-      <div role="tablist" aria-label="Kainoraščio kategorijos" className="-mx-4 flex gap-1 overflow-x-auto px-4 md:col-span-4 md:mx-0 md:flex-col md:px-0">
+      <div role="tablist" aria-label="Kainoraščio kategorijos" className="flex flex-wrap gap-1 md:col-span-4 md:flex-col md:flex-nowrap">
         {groups.map((g, i) => {
           const on = g.id === group.id;
           return (
@@ -36,7 +36,7 @@ export function PriceList({ groups, light = false }: { groups: PriceGroup[]; lig
               <span className={`relative font-mono text-[11px] ${on ? "text-white/80" : "text-red"}`}>
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <span className="relative whitespace-nowrap">{g.title}</span>
+              <span className="relative">{g.title}</span>
             </button>
           );
         })}

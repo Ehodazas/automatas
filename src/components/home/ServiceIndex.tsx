@@ -34,12 +34,12 @@ export function ServiceIndex() {
             <Link
               href={`/paslaugos#${s.slug}`}
               onPointerEnter={(e) => e.pointerType === "mouse" && setActive(i)}
-              className="group grid grid-cols-[auto_1fr_auto] items-center gap-4 py-5 md:grid-cols-[4rem_1fr_1fr_auto] md:gap-8 md:py-7"
+              className="group grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 py-5 sm:gap-4 md:grid-cols-[4rem_1fr_1fr_auto] md:gap-8 md:py-7"
             >
               <span className="font-mono text-xs text-mute transition-colors group-hover:text-red">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <span className="font-display text-xl font-bold uppercase leading-tight tracking-tight transition-transform duration-300 ease-out-quart [font-stretch:110%] group-hover:translate-x-2 md:text-4xl">
+              <span className="font-display text-[clamp(0.95rem,5.4vw,1.25rem)] font-bold uppercase leading-tight tracking-tight transition-transform duration-300 ease-out-quart [font-stretch:110%] group-hover:translate-x-2 md:text-4xl">
                 {s.title}
               </span>
               <span className="hidden text-sm leading-relaxed text-white/70 md:block">{s.short}</span>

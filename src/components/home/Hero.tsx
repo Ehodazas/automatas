@@ -47,7 +47,7 @@ export function Hero() {
           Remontas · Diagnostika · Autodalys
         </motion.p>
 
-        <h1 className="mt-6 font-display text-[clamp(1.7rem,8.3vw,8.6rem)] font-extrabold uppercase leading-[0.84] tracking-[-0.02em] [font-stretch:118%]">
+        <h1 className="mt-6 font-display text-[clamp(1.1rem,8.3vw,8.6rem)] font-extrabold uppercase leading-[0.84] tracking-[-0.02em] [font-stretch:118%]">
           {lines.map((line, i) => (
             <span key={line} className="block overflow-hidden pb-[0.04em] pt-[0.12em]">
               <motion.span

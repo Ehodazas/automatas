@@ -51,7 +51,7 @@ export default function ServicesPage() {
             </div>
             <div className="flex min-w-0 flex-col justify-center md:col-span-6">
               <p className="font-mono text-xs text-red">{String(i + 1).padStart(2, "0")} / {String(services.length).padStart(2, "0")}</p>
-              <h2 className="mt-3 font-display text-[clamp(1.5rem,7.4vw,3.2rem)] font-extrabold uppercase leading-[0.95] [font-stretch:112%]">
+              <h2 className="mt-3 font-display text-[clamp(1rem,6.9vw,3.2rem)] font-extrabold uppercase leading-[0.95] [font-stretch:112%]">
                 {s.title}
               </h2>
               <p className="mt-5 max-w-lg leading-relaxed text-white/70">{s.description}</p>
